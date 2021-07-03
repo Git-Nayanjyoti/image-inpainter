@@ -2,6 +2,7 @@ import numpy as np
 import streamlit as st
 import torch
 import torchvision.transforms as T
+import urllib
 from PIL import Image
 from torchvision.utils import make_grid, save_image
 
@@ -80,8 +81,8 @@ def do_predict(image):
     return Image.fromarray(results)
 
 @st.cache(show_spinner=False)
-def get_file_content_as_string(path):
-    url = 'https://raw.githubusercontent.com/Git-Nayanjyoti/image-inpainter/' + path
+def get_file_content_as_string():
+    url = 'https://raw.githubusercontent.com/Git-Nayanjyoti/image-inpainter/main/Project_Info.md'
     response = urllib.request.urlopen(url)
     return response.read().decode("utf-8")
 
@@ -104,7 +105,7 @@ def main():
     if app_mode == SIDEBAR_OPTION_PROJECT_INFO:
         st.sidebar.write(" ------- ")
         st.sidebar.success("Project information showing on the right!")
-        st.write(get_file_content_as_string("Project_Info.md"))
+        st.write(get_file_content_as_string())
 
     elif app_mode == SIDEBAR_OPTION_ENCODER_DECODER:
         st.write("AUTO ENCODER DECODER")
