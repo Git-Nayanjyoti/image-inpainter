@@ -98,7 +98,7 @@ def main():
 
     st.sidebar.warning("Please upload SINGLE-person images. For best results, also center the person in the image")
     st.sidebar.write(" -------- ")
-    st.sidebar.title("Explore the Following")
+    st.sidebar.title("Browse the Following")
 
     app_mode = st.sidebar.selectbox("Please select from the following", SIDEBAR_OPTIONS)
 
@@ -106,9 +106,12 @@ def main():
         st.sidebar.write(" ------- ")
         st.sidebar.success("Project information showing on the right!")
         st.write(get_file_content_as_string())
+        st.write("Our goal is to retrieve images that have faced the wrath of time and got degraded")
+        st.info("👈Please select a Model to test")
 
     elif app_mode == SIDEBAR_OPTION_ENCODER_DECODER:
-        st.write("AUTO ENCODER DECODER")
+        st.write("Auto Encoder Decoder")
+        st.sidebar.success("Try our Auto Encoder Decoder model on the right!")
         uploaded_image = st.file_uploader("Upload An Image", type=["jpg", "png", "jpeg"])
 
         if uploaded_image is not None:
@@ -118,7 +121,8 @@ def main():
            predictions = do_predict(image)
            st.image(predictions, caption='restored image')
     else:
-        st.write("PIX2PIX GAN")
+        st.sidebar.success("Try our PIX2PIX model on the right!")
+        st.write("pix2pix GAN")
         uploaded_image_gan = st.file_uploader("Upload An Image", type=["jpg", "png", "jpeg"])
 
         if uploaded_image_gan is not None:
@@ -134,3 +138,5 @@ def main():
 if __name__ == "__main__":
     # run the app
     main()
+    about_expander = st.beta_expander("More About Our Porject")
+    about_expander.write("Hi there! If you have any question about our porject, or simply want to check out the source code, please visit our github repo: https://github.com/Git-Nayanjyoti/image-inpainter.git")
