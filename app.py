@@ -11,8 +11,8 @@ from model1 import RestorationModel1
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 
-CHECKPOINT = "https://github.com/Git-Nayanjyoti/image-inpainter/releases/download/v-0.0.1/weights_sun_4_jul_2021.ckpt"
-CHECKPOINT1 = "old/version-01.ckpt"
+CHECKPOINT = "https://github.com/Git-Nayanjyoti/image-inpainter/releases/download/ver2.0/checkpoint.ckpt"
+CHECKPOINT1 = "https://github.com/Git-Nayanjyoti/image-inpainter/releases/download/ver2.0/version-01.ckpt"
 SIZE = 256
 
 # MODEL_WEIGHTS_DEPLOYMENT_URL = ''
